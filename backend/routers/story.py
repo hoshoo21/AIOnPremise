@@ -30,15 +30,17 @@ def create_story(request:CreateStoryRequest,
     
     job_id = str(uuid.uuid4())
     job =StoryJob(
+        id=  str(uuid.uuid4()),
         job_id = job_id,
         session_id = session_id,
         
         theme = request.theme,
         status = "Pedning"
     )
+    
+    print (job_id)
     db.add(job)
     db.commit()
-    
     background_tasks.add_task(generate_story_task, job_id= job_id, theme=request.theme, session_id = session_id)
     return job 
 

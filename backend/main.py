@@ -2,10 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from core.config import settings
 from routers import story, jobs
+from db.database import create_tables
 app = FastAPI(
     title = "Chose your own adventure game api0",
 )
 
+create_tables()
 print(settings.ALLOWED_ORIGINS)
 
 app.add_middleware(

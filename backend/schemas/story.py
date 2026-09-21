@@ -13,7 +13,7 @@ class StoryNodeBase(BaseModel):
     is_winning_ending:bool =False
     
 class CompleteStoryNodeResponse(StoryNodeBase):
-    id:int
+    id:str
     options :List[StoryOptionsSchema]=[]
 
     class Config:
@@ -30,7 +30,7 @@ class CreateStoryRequest(BaseModel):
     theme:str
     
 class CompleteStoryResponse(StoryBase):
-    id :int 
+    id :str 
     created_at : datetime
     root_node : CompleteStoryNodeResponse
     all_nodes : Dict[int, CompleteStoryNodeResponse]
