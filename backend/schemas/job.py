@@ -8,8 +8,9 @@ class StoryJobBase(BaseModel):
 class StoryJobResponse(BaseModel):
     job_id:str 
     status:str
+    session_id :str 
     created_at :datetime
-    story_id :Optional[int] = None
+    story_id :Optional[str] = None
     completed_at:Optional[datetime] = None
     error: Optional[str] = None
     

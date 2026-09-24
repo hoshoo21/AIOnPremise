@@ -11,7 +11,7 @@ class StoryJob(Base):
     session_id = Column(String, index=True )
     theme = Column(String)
     status = Column(String)
-    story_id = Column(Integer, nullable=True)
+    story_id = Column(String, nullable=True)
     error = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True),  default=lambda: datetime.now(timezone.utc))
     compeleted_job = Column(DateTime(timezone=True), nullable = True)

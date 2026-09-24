@@ -23,7 +23,7 @@ class Settings(BaseSettings):
             self.DATABASE_URL = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
     @field_validator("ALLOWED_ORIGINS")
     def parse_allowed_origins(cls,v:str)->list[str]:
-        return v.split() if v else []
+        return v.split(',') if v else []
     
     
     class Config:

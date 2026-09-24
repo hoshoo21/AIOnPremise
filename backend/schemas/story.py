@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class StoryOptionsSchema(BaseModel):
     text:str
-    node_id :Optional[int]= None
+    node_id :Optional[str]= None
     
 class StoryNodeBase(BaseModel):
     content:str
@@ -33,7 +33,7 @@ class CompleteStoryResponse(StoryBase):
     id :str 
     created_at : datetime
     root_node : CompleteStoryNodeResponse
-    all_nodes : Dict[int, CompleteStoryNodeResponse]
+    all_nodes : Dict[str, CompleteStoryNodeResponse]
     
     class Config:
         from_attributes = True
